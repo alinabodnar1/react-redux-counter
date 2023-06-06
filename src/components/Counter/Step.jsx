@@ -1,17 +1,16 @@
-import React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useDispatch, useSelector } from 'react-redux';
+import { SETSTEP } from 'store/counter/types';
 
 export default function Step() {
     const dispatch = useDispatch();
-    const step = useSelector(state => state.step)
+    const step = useSelector(state => state.counter.step)
     
     const handleSubmit = e => {
         e.preventDefault();
         const { value } = e.target.elements.step;
-
-        dispatch ({ type: 'setStep', payload: Number(value) })
+        dispatch ({ type: SETSTEP, payload: Number(value) })
     }
 
   return (
@@ -22,7 +21,6 @@ export default function Step() {
                     label="step"
                     variant="standard"
                     name='step'
-                    value={step}
                     type='number'
           /> {' '}
           <Button variant="contained" type='submit'>Set Step</Button>
