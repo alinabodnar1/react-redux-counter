@@ -6,6 +6,7 @@ import { SETSTEP } from 'store/counter/types';
 export default function Step() {
     const dispatch = useDispatch();
     const step = useSelector(state => state.counter.step)
+    console.log(step);
     
     const handleSubmit = e => {
         e.preventDefault();
